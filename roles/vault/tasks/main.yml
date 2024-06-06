@@ -1,3 +1,6 @@
+- name: set prompt
+  ansible.builtin.shell: set-prompt vault
+
 - name: Install YUM Repo file
   ansible.builtin.shell: yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 
