@@ -1,5 +1,5 @@
 - name: setup Tool with Ansible code
-  hosts: all
+  hosts: 172.31.85.40
   become: true
   roles:
     - "{{ tool_name }}"
