@@ -14,7 +14,7 @@
     group: prometheus
 
 - name: update prometheus configuration
-  ansible.builtin.templates:
+  ansible.builtin.template:
     src: prometheus.yml
     dest: /opt/prometheus-2.52.0.linux-amd64/prometheus.yml
     owner: prometheus
