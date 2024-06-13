@@ -13,6 +13,13 @@
     owner: prometheus
     group: prometheus
 
+- name: update prometheus configuration
+  ansible.builtin.templates:
+    src: prometheus.yml
+    dest: /opt/prometheus-2.52.0.linux-amd64/prometheus.yml
+    owner: prometheus
+    group: prometheus
+
 - name: Copy Prometheus systemd file
   ansible.builtin.template:
     src: prometheus.service
