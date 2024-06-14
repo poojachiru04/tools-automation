@@ -26,3 +26,9 @@ scrape_configs:
         filters:
           - name: "tag:monitor"
             value: ["yes"]
+    relabel_configs:
+{% for label in labels %}
+
+      - source_labels: [_meta_ec2_{{label}}]
+        target_label: {{label}}
+{% endfor %}
