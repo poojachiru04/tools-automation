@@ -25,7 +25,7 @@ scrape_configs:
         port: 9100
         filters:
           - name: "tag:monitor"
-            value: ["yes"]
+            values: ["yes"]
     relabel_configs:
 {% for label in labels %}
 
