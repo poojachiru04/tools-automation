@@ -12,7 +12,7 @@ variable "tools" {
       port_no       = "9090"
       policy_actions = [
          "ec2:DescribeInstances",
-         "ec2:DescribeAvailabilityZone"
+         "ec2:DescribeAvailabilityZones"
         ]
     }
     grafana = {
