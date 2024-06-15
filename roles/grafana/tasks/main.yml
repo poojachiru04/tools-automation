@@ -4,7 +4,7 @@
 - name: copy repo file
   ansible.builtin.template:
     src: grafana.repo
-    dest: /etc/yum.repo.d/grafana.repo
+    dest: /etc/yum.repos.d/grafana.repo
 
 - name: Install grafana
   ansible.builtin.dnf:
