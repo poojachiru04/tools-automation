@@ -39,7 +39,7 @@ scrape_configs:
         port: 9113
         filters:
           - name: "tag:component"
-            values: ["forntend"]
+            values: ["frontend"]
     relabel_configs:
     {% for label in labels %}
 
