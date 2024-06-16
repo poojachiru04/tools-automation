@@ -33,7 +33,7 @@ scrape_configs:
         target_label: {{label}}
 {% endfor %}
 
-  - job_name: 'ngnix-exporter-nodes'
+  - job_name: 'nginx-exporter-nodes'
     ec2_sd_configs:
       - region: us-east-1
         port: 9113
