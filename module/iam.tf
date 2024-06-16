@@ -16,10 +16,10 @@ resource "aws_iam_role" "main" {
   })
 
   inline_policy {
-  name = "inline-policy"
+     name = "inline-policy"
 
     policy = jsonencode({
-    Version = "2012-10-17"
+      Version = "2012-10-17"
       Statement = [
         {
           Action   = concat(var.dummy_policy, var.policy_actions)
@@ -31,11 +31,11 @@ resource "aws_iam_role" "main" {
   }
 
   tags = {
-    tag-key = "${var.name}-role"
+    Name = "${var.name}-role"
   }
 }
 
-resource "aws_iam_instance_profile""main" {
+resource "aws_iam_instance_profile" "main" {
   name = "${var.name}-role"
   role = aws_iam_role.main.name
 }
