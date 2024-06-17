@@ -25,9 +25,8 @@
     src: prometheus.service
     dest: /etc/systemd/system/prometheus.service
 
-- name: Start Prometheus Service
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: start-service
-  vars:
-    service_name: prometheus
+- name: Start prometheus server
+  ansible.builtin.systemd_service:
+    name: prometheus-server
+    state: started
+    enabled: yes
