@@ -53,7 +53,7 @@ resource "aws_route53_record" "main" {
   name    = "${var.name}.poodevops.online"
   type    = "A"
   ttl     = 5
-  records = ["aws_instance.main.public_ip"]
+  records = [aws_instance.main.public_ip]
 }
 
 resource "aws_route53_record" "private" {
@@ -61,5 +61,5 @@ resource "aws_route53_record" "private" {
   name    = "${var.name}-internal.poodevops.online"
   type    = "A"
   ttl     = 5
-  records = ["aws_instance.main.private_ip"]
+  records = [aws_instance.main.private_ip]
 }
