@@ -4,3 +4,5 @@ labels:
   - tag_component
   - instance_type
   - instance_id
+
+secrets: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=infra-secrets/data/prometheus token={{vault_token}} url=https://vault-internal.poodevops.online:8200 validate_certs=false') }}"

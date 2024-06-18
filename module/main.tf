@@ -9,11 +9,15 @@ resource "aws_security_group" "main" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = var.port_no
-    to_port     = var.port_no
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "ingress" {
+    for_each = var.port_no
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+      description = ingress.key
+    }
   }
 
   egress {
@@ -40,17 +44,16 @@ resource "aws_instance" "main" {
   }
 
   tags = {
-    Name    = var.name
+    Name = var.name
   }
 }
-
 
 resource "aws_route53_record" "main" {
   zone_id = data.aws_route53_zone.main.zone_id
   name    = "${var.name}.poodevops.online"
   type    = "A"
   ttl     = 5
-  records = [aws_instance.main.public_ip]
+  records = ["aws_instance.main.public_ip"]
 }
 
 resource "aws_route53_record" "private" {
@@ -58,5 +61,5 @@ resource "aws_route53_record" "private" {
   name    = "${var.name}-internal.poodevops.online"
   type    = "A"
   ttl     = 5
-  records = [aws_instance.main.private_ip]
+  records = ["aws_instance.main.private_ip"]
 }
