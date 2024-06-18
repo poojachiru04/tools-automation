@@ -10,6 +10,6 @@ receivers:
       - to: "poojasunil9632@gmail.com"
         from: "poojasunil9632@gmail.com"
         smarthost: "email-smtp.us-east-1.amazonaws.com:587"
-        auth_username: "{{secrets_username}}"
-        auth_password: "{{secrets_password}}"
+        auth_username: "{{secrets.smtp_username}}"
+        auth_password: "{{secrets.smtp_password}}"
         require_tls: true
