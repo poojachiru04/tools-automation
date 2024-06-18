@@ -5,6 +5,11 @@
   ansible.builtin.user:
     name: prometheus
 
+- name:  install hvac
+  ansible.builtin.shell: |
+    pip3.9 install hvac
+    pip3.11 install hvac    
+
 - name: Download Prometheus
   ansible.builtin.unarchive:
     src: https://github.com/prometheus/prometheus/releases/download/v2.52.0/prometheus-2.52.0.linux-amd64.tar.gz
@@ -46,6 +51,7 @@
     remote_src: true
     owner: prometheus
     group: prometheus
+
 
 - name: Update AlertManager configuration
   ansible.builtin.template:
